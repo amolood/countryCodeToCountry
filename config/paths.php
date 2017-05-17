@@ -6,7 +6,7 @@
 // Library's root directory
 !defined('ROOT_DIR') ?: defined('ROOT_DIR', __DIR__ . '..');
 
-// library's main directories hiarachy
+// library's main directories hierarchy
 return [
     'resources_dir' => ROOT_DIR . DS . 'resources',
     'sources_dir' => ROOT_DIR . DS . 'src',
