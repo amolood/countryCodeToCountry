@@ -1,0 +1,20 @@
+{
+    "name": "amolood/countrycode-to-countryname",
+    "description": "List and convert standard country codes to its appropriate country name using an arbitrary locale",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Amolood\\countrycodeToCountryname\\": "src/"
+        }
+    },
+    "require": {
+        "umpirsky/country-list": "^2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "amolood",
+            "email": "molood@amolood.com"
+        }
+    ]
+}
