@@ -47,7 +47,7 @@ class Config
     /**
      * Default config directory
      */
-    CONST CONFIG_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'config';
+    CONST CONFIG_DIR = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
 
     /**
      * Dependency container
@@ -70,10 +70,12 @@ class Config
         $this->fileName = "{$fileName}.{$extension}";
 
         if (!$this->isValidFile()) {
-            throw new InvalidConfigFile("Config file was not found or could not read");
+            throw new InvalidConfigFile(
+                "Config file was not found or could not read in " . $this::CONFIG_DIR . "{$this->fileName}"
+            );
         }
 
-        $this->options = require $this::CONFIG_DIR . $fileName;
+        $this->options = require $this::CONFIG_DIR . $this->fileName;
     }
 
     /**
@@ -125,7 +127,8 @@ class Config
      */
     protected function isValidFile()
     {
-        return file_exists($this->fileName()) && is_readable($this->fileName());
+        return file_exists($this::CONFIG_DIR . $this->fileName())
+            && is_readable($this::CONFIG_DIR . $this->fileName());
     }
 
     /**

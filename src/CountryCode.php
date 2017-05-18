@@ -24,6 +24,8 @@
  */
 namespace Amolood\countrycodeToCountryname;
 
+use Amolood\countrycodeToCountryname\Exceptions\InvalidCountryCode;
+
 
 /**
  * CountryCode
@@ -47,20 +49,40 @@ class CountryCode
      */
     protected $locale;
 
-    protected $paths = __DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'paths.php';
+    /**
+     * @var Config
+     */
+    protected $paths;
+
+    /**
+     * @var array
+     */
+    protected $countries = [];
 
     public function __construct(Locale $locale)
     {
         $this->locale = $locale;
+        $this->paths = Config::instance('paths');
+        $countryListDirectory = $this->paths->optionValue('vendor_dir') . DS . 'umpirsky' . DS . 'country-list' . DS . 'data' . DS;
+        $this->countries = require  $countryListDirectory . $this->locale->name() . DS . 'country.php';
     }
 
-    public function name()
+    public function name($code)
     {
+        if (!$this->exists($code)) {
+            throw new InvalidCountryCode("Code {$code} is invalid");
+        }
 
+        return $this->countries[$code];
     }
 
-    public static function all()
+    public function exists($code)
     {
+        return array_key_exists($code, $this->countries);
+    }
 
+    public function all($codesOnly = false)
+    {
+        return $codesOnly ? array_keys($this->countries) : $this->countries;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 // Alias to the long PHP Dir Separator.
-!defined('DS') ?: defined('DS', DIRECTORY_SEPARATOR);
+defined('DS') ?: define('DS', DIRECTORY_SEPARATOR);
 
 // Library's root directory
-!defined('ROOT_DIR') ?: defined('ROOT_DIR', __DIR__ . '..');
+defined('ROOT_DIR') ?: define('ROOT_DIR', __DIR__ . DS . '..');
 
 // library's main directories hierarchy
 return [

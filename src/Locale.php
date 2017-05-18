@@ -620,7 +620,7 @@ class Locale
     ];
 
 
-    public function __construct($locale)
+    public function __construct($locale = self::DEFAULT_LOCALE)
     {
         if (!$this::isValid($locale)) {
             throw new InvalidLocale("Locale is invalid or mistyped.");
