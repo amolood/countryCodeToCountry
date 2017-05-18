@@ -3,7 +3,7 @@ This is country Code To Country PHP library, With localized Country List
  (including Arabic) with dropdown HTML sample :)
 
 ## Requirements:
-1. >= PHP 5.6.
+1. `>= PHP 5.6`.
 2. Composer.
 
 ## Usage:
