@@ -1,47 +1,9 @@
 <?php
-/**
- * countryCodeToCountry
- *
- * Description:  Date: 17/05/2017 11:46 PM
- *
- * PHP version 5.5
- *
- * LICENSE: This source file is subject to version 3.01 of the PHP license
- * that is available through the world-wide-web at the following URI:
- * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
- * the PHP License and are unable to obtain it through the web, please
- * send a note to license@php.net so we can mail you a copy immediately.
- *
- * @category   CategoryName
- * @package    PackageName
- * @author     Amer Anwar <adaroobi@hotmail.com>
- * @copyright  2006-2017 The PHP Group
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    $Id$
- * @link       http://
- * @see        http://
- * @since      File available since Release 0.0.0
- */
 
 namespace Amolood\countrycodeToCountryname;
 
 use Amolood\countrycodeToCountryname\Exceptions\InvalidConfigFile;
 
-/**
- * Config
- *
- * Long description for Config (if any)...
- *
- * @category   CategoryName
- * @package    PackageName
- * @author     Amer Anwar <adaroobi@hotmail.com>
- * @copyright  2006-2017
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    Release: @package_version@
- * @link       http://
- * @see        http://
- * @since      Class available since Release 0.0.0
- */
 class Config
 {
     /**
@@ -56,11 +18,13 @@ class Config
     protected static $loadedContainer = [];
 
     /**
+     * Current loaded file name
      * @var string
      */
     protected $fileName;
 
     /**
+     * Options loaded form the current file
      * @var array
      */
     protected $options = [];
@@ -79,6 +43,7 @@ class Config
     }
 
     /**
+     * Current loaded file name
      * @return string
      */
     public function fileName()
@@ -87,6 +52,7 @@ class Config
     }
 
     /**
+     * List of all loaded options
      * @return array
      */
     public function options()
@@ -95,6 +61,7 @@ class Config
     }
 
     /**
+     * Get all available options
      * @return array
      */
     public function optionNames()
@@ -103,6 +70,7 @@ class Config
     }
 
     /**
+     * Check whether option exists in current file
      * @param $option
      * @return bool
      */
@@ -112,6 +80,7 @@ class Config
     }
 
     /**
+     * Get the value of an option
      * @param $option
      * @return mixed|null
      */
@@ -123,6 +92,7 @@ class Config
     }
 
     /**
+     * Check if this is a valid file
      * @return bool
      */
     protected function isValidFile()
@@ -132,6 +102,7 @@ class Config
     }
 
     /**
+     * Make instantiation for current Config class which loads a config only once
      * @param $configName
      * @return Config|mixed
      */
@@ -143,6 +114,7 @@ class Config
     }
 
     /**
+     * Prepend Container with a new config instance
      * @param Config $config
      * @return Config
      */
@@ -152,6 +124,7 @@ class Config
     }
 
     /**
+     * Get a config instance for an arbitrary config file if exists
      * @param $configName
      * @return Config|mixed
      */
