@@ -15,7 +15,3 @@ There is sample file in `resources/index.php`.
 Thanks to AmrMekkawy
 https://github.com/umpirsky/country-list
 
-Contact : 
-molood@amolood.com
-+249912740956
-
